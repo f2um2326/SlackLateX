@@ -63,7 +63,7 @@ function createWS(url) {
                             pong(mObj.channel,"pong");
                         }
                         if(latex[mObj.user+mObj.channel]==true && mObj.text[0]==='$' && mObj.text[mObj.text.length-1]==='$' && mObj.text.length>1) {
-                            deleteMessage(mObj.ts,mObj.channel);
+                            //deleteMessage(mObj.ts,mObj.channel);
                             postLatex(mObj.channel,mObj.text.substring(1,mObj.text.length-1).replace('&amp;','&'));
                             console.log('Converting to latex: ' + mObj.text);
                         }
