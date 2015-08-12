@@ -62,23 +62,12 @@ function createWS(url) {
                         if(mObj.text==='..ping'){
                             pong(mObj.channel,"pong");
                         }
-                        if(latex[mObj.user+mObj.channel]==true && mObj.text[0]==='$' && mObj.text[mObj.text.length-1]==='$' && mObj.text.length>1) {
+                        if(mObj.user && mObj.channel && mObj.text[0]==='$' && mObj.text[mObj.text.length-1]==='$' && mObj.text.length>1) {
                             //deleteMessage(mObj.ts,mObj.channel);
                             postLatex(mObj.channel,mObj.text.substring(1,mObj.text.length-1).replace('&amp;','&'));
                             console.log('Converting to latex: ' + mObj.text);
                         }
                         
-                    
-                        if(mObj.text==='..startLatex') {
-                            latex[mObj.user+mObj.channel]=true;
-                            console.log('Enable latex for ' + mObj.user+mObj.channel);
-                        }
-                        if(mObj.text==='..stopLatex') {
-                            latex[mObj.user+mObj.channel]=false;
-                            console.log('disable latex for ' + mObj.user+mObj.channel);
-
-                        }
-
                     }
             }
 
